@@ -10,4 +10,4 @@
 >Rota para criar um candidato express
 
 
-![](/assets/craindoCandidatoExpress.png)
+![]_(/assets/craindoCandidatoExpress.png)
