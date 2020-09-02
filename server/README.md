@@ -1,9 +1,17 @@
-# Awesome Project Build with TypeORM
 
 ## Executar este projeto:
 
 1. install `npm i` 
 2. rodar `npm run dev` 
+
+### Tecnologias utilizadas
+
+- express
+- sqlite3
+- uuidv4
+- ts-node-dev
+- class-validator
+- cors
 
 ## Routes
 

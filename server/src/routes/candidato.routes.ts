@@ -1,6 +1,7 @@
 import Router, {Request, Response} from 'express';
 import { getRepository } from 'typeorm';
 import Candidato from '../models/Candidato';
+import { validate } from 'class-validator';
 
 const candidatoRoutes = Router();
 
@@ -27,6 +28,11 @@ candidatoRoutes.post('/', async(req:Request, res:Response) =>{
             solucao 
         })
 
+        const errors = await validate(createCandidato);
+
+        if(errors.length !== 0){
+            return res.status(400).json(errors.map(erro => erro.constraints))
+        }
 
         const result = await repoCandidato.save(createCandidato);
 
