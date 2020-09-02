@@ -1,4 +1,4 @@
-import { Entity, PrimaryGeneratedColumn, Column } from "typeorm";
+import { Entity, PrimaryGeneratedColumn, Column, DeleteDateColumn } from "typeorm";
 import { uuid } from 'uuidv4'
 
 @Entity('candidato')
@@ -24,5 +24,8 @@ export default class Candidato{
 
     @Column()
     solucao:string;
+
+    @DeleteDateColumn()
+    deletedAt?: Date;
 
 }
