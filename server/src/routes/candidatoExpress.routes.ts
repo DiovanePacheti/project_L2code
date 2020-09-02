@@ -93,6 +93,22 @@ candidatoExpressRoutes.get('/', async(req:Request, res:Response) => {
 
         res.status(400).json({erro:"erro ao listar candidatos express"})
     }
+});
+
+candidatoExpressRoutes.delete('/:id', async(req:Request, res:Response) =>{
+    const { id } = req.params;
+
+    const repoCandidatoEpress = getRepository(CandidatoExpress);
+    try{
+        const result = repoCandidatoEpress.softDelete({ id })
+
+        return res.status(200).json(result)
+    }catch(err){
+        console.log('erro', err.message);
+        return res.status(400).json({
+            erro:'erro ao deletar candidato express'
+        })
+    }    
 })
 
 export default candidatoExpressRoutes;

@@ -85,13 +85,20 @@ candidatoRoutes.get('/', async(req:Request, res:Response) => {
     }
 });
 
-candidatoRoutes.delete('/id', async(req:Request, res:Response) =>{
+candidatoRoutes.delete('/:id', async(req:Request, res:Response) =>{
     const { id } = req.params;
 
     const repoCandidato = getRepository(Candidato);
+    try{
+        const result = repoCandidato.softDelete({ id })
 
-    const result = repoCandidato.softDelete({ id })
-    
-})
+        return res.status(200).json(result)
+    }catch(err){
+        console.log('erro', err.message);
+        return res.status(400).json({
+            erro:'erro ao deletar candidato '
+        })
+    }    
+});
 
 export default candidatoRoutes;
