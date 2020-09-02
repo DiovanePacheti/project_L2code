@@ -1,0 +1,40 @@
+#page-candidato-express{
+    width: 100vw;
+    height: 100vh;
+}
+
+.page-header{
+    display: flex;
+    flex-direction: initial;
+    background: var(--color-menu);
+    height: 80px;
+    align-items: center;
+    justify-content: space-between;
+}
+ 
+.page-header .top-bar-container{
+    
+}
+
+.page-header ul{
+    display: flex;
+    align-items: center;
+}
+
+.page-header ul li{
+    font-size:2rem;
+    
+    margin-left: 2%;
+}
+
+.sessaoLogado{
+    background: var( --color-menu-dark);
+    height: 100%;
+    width: 15%;
+}
+
+.sessaoLogado p{
+    justify-content: center;
+    align-items: center;
+    color:white;
+}

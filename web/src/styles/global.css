@@ -2,7 +2,8 @@
     font-size: 60%;
 
     --color-background: #F0F0F7;
-    --color-menu: #6a1b9a;
+    --color-menu: #81c784;
+    --color-menu-dark: #1b5e20;
 }
 
 * {
@@ -20,4 +21,24 @@ body,
 
 body{
     background: var( --color-background) ;
+}
+
+#root{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+body,
+input,
+button{
+    font: 500 1.6rem Poppins;
+}
+
+.container{
+    width: 100vw;
+}
+
+ul{
+    list-style: none;
 }

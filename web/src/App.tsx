@@ -1,10 +1,10 @@
 import React from 'react';
-
+import CandidatoExpress from './pages/CandidatoExpress';
 import './styles/global.css'
 
 function App() {
   return (
-    <h1>oi</h1>
+    <CandidatoExpress />
   );
 }
 
