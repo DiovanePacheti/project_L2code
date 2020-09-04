@@ -1,30 +1,56 @@
 import React from 'react';
+import PageHeader from '../../components/PageHeader';
+import Select from '../../components/Select';
+
 import './styles.css';
+import ListagemCandidato from '../../components/ListagemCandidato';
+import Input from '../../components/Input';
+import { link } from 'fs';
 
-import logoImg from '../../assets/img/logo.png';
+function CandidatoExpress(){
+
+    const listagem =[
+        {cpf:"000.000.000-89", nome:"Luis", email:"luis@gmail.com" }
 
 
-function CandidatoExpress() {
+    ]
+
     return(
-        <div id="page-candidato-express" className="container">
-            <header className="page-header">
-                <div className="top-bar-container">
-                    <img src={logoImg} alt="l2code"/>
-                </div>
-                <div className="header-menu">
-                    <ul>
-                        <li>Concessões</li>
-                        <li>Beneficiários</li>
-                        <li>Renovações</li>
-                        <li>Relatórios</li>
-                        <li>Mais</li>
-                    </ul>
-                </div>
-                <div className="sessaoLogado">
-                    <p>Olá, Diovane</p>
-                </div>
+        <div className="page-candidato-express" >
+            <PageHeader title="Indicação especial" />
+            <Select 
+                name="convenio" 
+                label="selecione o convênio vinculado aos estudantes que serão inidcados:" 
+                options={[
+                    {value:'Cred', label:'ULBRA EAD - Cred'},
+                    {value:'Express', label:'ULBRA EAD - Cred/express'}
+                    
+                ]}
+            />
 
-            </header>
+            <div className="cadastro-candidato-express">
+                <form id="formulario-candidato">
+                    <Input name="cpf" label="CPF" />
+                    <Input name="nome" label="Nome" />
+                    <Input name="email" label="Email" />
+                    <Input name="telefone" label="Telefone" />
+                </form>
+                    <button type="button">Indicar candidato</button>
+            </div>
+            <div className="listando-candidatos">
+                <ul>
+                    {
+                        listagem.map(lista =>{
+                            return(
+                                <ListagemCandidato />
+                            )
+                        })
+                    }
+
+                </ul>
+            </div>
+
+
         </div>
     );
 }

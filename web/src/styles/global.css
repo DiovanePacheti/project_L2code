@@ -1,9 +1,13 @@
 :root{
     font-size: 60%;
 
-    --color-background: #F0F0F7;
+    --color-background: #e7e7eb;
     --color-menu: #81c784;
     --color-menu-dark: #1b5e20;
+    --color-label: #838a83;
+    --color-background-input:#eff7ef;
+    --color-background-li:#fcfcfc;
+    --color-border-input:#c9c9c9;
 }
 
 * {

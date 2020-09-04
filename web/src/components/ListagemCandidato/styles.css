@@ -1,0 +1,25 @@
+
+.listando-candidatos {
+    display: block;
+    width: 100%;
+    margin-top: 0.5rem;
+
+}
+.listando-candidatos ul li{
+    margin: 1% auto;
+    width: 95%;
+    height: 6rem;
+    background:var( --color-background-li);
+    padding: 1.8rem;
+    color: var( --color-label);
+    border-radius: 0.8rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+}
+
+.listando-candidatos ul li a{
+    color: var( --color-menu-dark);
+
+}

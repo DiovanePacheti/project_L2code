@@ -1,10 +1,10 @@
 import React from 'react';
-import CandidatoExpress from './pages/CandidatoExpress';
 import './styles/global.css'
+import Routes from './routes';
 
 function App() {
   return (
-    <CandidatoExpress />
+    <Routes />
   );
 }
 

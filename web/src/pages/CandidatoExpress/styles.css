@@ -1,40 +1,28 @@
-#page-candidato-express{
+.page-candidato-express{
     width: 100vw;
     height: 100vh;
 }
 
-.page-header{
-    display: flex;
-    flex-direction: initial;
-    background: var(--color-menu);
-    height: 80px;
-    align-items: center;
-    justify-content: space-between;
+#formulario-candidato{
+    margin-top: 3.2rem;
 }
- 
-.page-header .top-bar-container{
+
+#formulario-candidato {
+    display: grid;
+    grid-template-columns:1fr 1fr 1fr 1fr;
+    column-gap: 1rem;
+    border: none;
+    padding: 1rem 3.5rem;
     
 }
 
-.page-header ul{
-    display: flex;
-    align-items: center;
+ .cadastro-candidato-express button{
+    border: none;
+    padding: 1rem 3.5rem;
+    margin-left: 80% ;
+    border-radius: 5rem;
+    background:var( --color-menu-dark) ;
+    color: var(--color-background-input);
 }
 
-.page-header ul li{
-    font-size:2rem;
-    
-    margin-left: 2%;
-}
 
-.sessaoLogado{
-    background: var( --color-menu-dark);
-    height: 100%;
-    width: 15%;
-}
-
-.sessaoLogado p{
-    justify-content: center;
-    align-items: center;
-    color:white;
-}

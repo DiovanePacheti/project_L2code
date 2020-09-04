@@ -1,0 +1,52 @@
+
+.page-header{
+    display: flex;
+    flex-direction: column;
+}
+
+.page-header nav{
+    display: flex;
+    flex-direction: initial;
+    background: var(--color-menu);
+    align-items: center;
+    justify-content: space-between;
+}
+ 
+.page-header ul{
+    display: flex;
+    align-items: center;
+}
+
+.page-header ul li{
+    font-size:2rem;
+    
+    margin-left: 2%;
+}
+
+.sessaoLogado{
+    background: var( --color-menu-dark);
+    height: 100%;
+    width: 15%;
+}
+
+.sessaoLogado p{
+    justify-content: center;
+    align-items: center;
+    color:white;
+}
+
+.page-header .complementos-header{
+    display: flex;
+    padding: 0 5rem;
+    justify-content: space-between;
+    height: 13rem;
+}
+
+.complementos-header .historico-indicacoes{
+    color: rgb(60, 109, 101);
+}
+
+.complementos-header .titulo-navegacao strong{
+    font: 700 3.6rem Archivo;
+    line-height: 9.2rem;
+}
