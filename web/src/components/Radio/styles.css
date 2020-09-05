@@ -1,0 +1,13 @@
+.input-block-radio{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.input-block-radio label{
+    margin-right: 2rem;
+}
+.input-block-radio input{
+    display: flex;
+    width: 2rem;
+}

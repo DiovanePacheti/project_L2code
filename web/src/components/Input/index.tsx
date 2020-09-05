@@ -5,6 +5,7 @@ import './styles.css';
 interface InputProps extends InputHTMLAttributes<HTMLInputElement>{
     label: string;
     name: string;
+    
 
 }
 

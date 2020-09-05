@@ -13,6 +13,14 @@
     flex-direction: column;
     width: 100vw;
 }
+
+.page-candidato .cadastro-candidato #formulario-candidato .radio-solucao{
+    display: flex;
+    height: 4rem;
+    color:var(--color-titulo);
+}
+
+
 .page-candidato .cadastro-candidato #formulario-candidato .dados-pessoais{
     display:flex;
     justify-content: space-between;
