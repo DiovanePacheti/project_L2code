@@ -1,4 +1,3 @@
-
 .page-header{
     display: flex;
     flex-direction: column;
@@ -6,29 +5,86 @@
 
 .page-header nav{
     display: flex;
-    flex-direction: initial;
-    background: var(--color-menu);
+    flex-direction: row;
     align-items: center;
+    align-content: stretch;
     justify-content: space-between;
+    height: 6.2rem;
+    background: var(--color-menu);
+    padding: 0 0 0 2rem ;
 }
- 
+
+.page-header nav .img-logo{
+    margin-top: 0.3rem;
+}
+
 .page-header ul{
     display: flex;
     align-items: center;
+    justify-content: space-evenly;
+    width: 70vw;
+    height: 8.5rem;
 }
 
+
 .page-header ul li{
-    font-size:2rem;
+    font-size: 2rem;
+    font-weight: 500;
+    color:var(--color-text-menu);
+
+}
+
+.page-header ul li a{
+    color:var(--color-text-menu);
+    font-size:1.7rem ;
+
+}
+.page-header ul li a .iconsMenu{
+    margin-right: 1rem;
+    font-size:2.1rem ;
+    color:var(--color-menu-dark);
+}
+
+.page-header .complementos-header{
+    display: flex;
+    justify-content: space-between;
+    padding: 0 2rem 0 4rem;
+    max-height: 60rem;
+}
+.page-header .complementos-header .historico-indicacoes{
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    font-size:1.4rem ;
     
-    margin-left: 2%;
+}
+
+.page-header .complementos-header .historico-indicacoes .clock-historico{
+    margin-right: 0.7rem;
+}
+.page-header .complementos-header .historico-navegacao p{
+    margin-bottom:1.5rem ;
+
+}
+.page-header .complementos-header .historico-navegacao strong{
+    font: 700 2.6rem Archivo;
+    line-height: 9.2rem;
+    align-self:flex-end;
+    color:var(--color-titulo);
+}
+
+.page-header .complementos-header .historico-indicacoes{
+    color:var(--color-link);
+    align-self: flex-end;
+    margin-bottom:2.5rem ;
 }
 
 .sessaoLogado{
     background: var( --color-menu-dark);
-    height: 100%;
-    width: 15%;
+    padding: 1.9rem 5rem; 
+    align-content: stretch;
 }
-
+/*
 .sessaoLogado p{
     justify-content: center;
     align-items: center;
@@ -46,7 +102,5 @@
     color: rgb(60, 109, 101);
 }
 
-.complementos-header .titulo-navegacao strong{
-    font: 700 3.6rem Archivo;
-    line-height: 9.2rem;
-}
+
+*/

@@ -3,17 +3,24 @@
 
     --color-background: #e7e7eb;
     --color-menu: #81c784;
-    --color-menu-dark: #1b5e20;
+    --color-text-menu:#f1f3f1;
+    --color-menu-dark: #4e7451;
     --color-label: #838a83;
     --color-background-input:#eff7ef;
     --color-background-li:#fcfcfc;
     --color-border-input:#c9c9c9;
+    --color-link:#297eaf;
+    --color-titulo:#323442;
 }
 
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+}
+
+a{
+    text-decoration: none;
 }
 
 html,

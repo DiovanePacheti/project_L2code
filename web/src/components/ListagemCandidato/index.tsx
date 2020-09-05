@@ -1,32 +1,15 @@
-import React, { HTMLAttributes } from 'react';
+import React from 'react';
 
-/*
 import './styles.css';
-
-interface ListagemProps extends HTMLAttributes<HTMLElement>{
-    options: Array<{
-        cpf:string;
-        nome:string;
-        email:string;
-    }>;
-
-}
-
-const ListagemCandidato: React.FC<ListagemProps> = ({options}) =>{
+function ListagemCandidato(){
     return(
-        {options.map(option =>{ 
-            return(
-
-                <li key={option.cpf}>
-                    <div className="item">
-                        <strong>{option.cpf}</strong> <strong>{option.nome}</strong><strong>{option.email}</strong> <a href="">Ver detalhes</a> <a href="">Apagar</a>
-                    </div>
-                </li>
-            )
-        })}
-        <h1>p</h1>
+        <li>
+            <div className="item">
+                <strong>000.000.000-00</strong> <strong>Diovane</strong><strong>diovane@gmail.com</strong> <a href="">Ver detalhes</a> <a href="">Apagar</a>
+            </div>
+        </li>
+            
     );
 }
 
 export default ListagemCandidato;
-*/
