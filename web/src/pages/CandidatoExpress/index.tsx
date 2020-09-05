@@ -1,11 +1,9 @@
 import React from 'react';
 import PageHeader from '../../components/PageHeader';
 import Select from '../../components/Select';
-
 import './styles.css';
 import ListagemCandidato from '../../components/ListagemCandidato';
 import Input from '../../components/Input';
-import { link } from 'fs';
 
 function CandidatoExpress(){
 
