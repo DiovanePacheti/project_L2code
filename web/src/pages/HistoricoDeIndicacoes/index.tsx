@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, FormEvent } from 'react';
 import PageHeader from '../../components/PageHeader';
 import Select from '../../components/Select';
 
@@ -9,30 +9,41 @@ import Button from '../../components/Button';
 
 function HistoricoDeIndicacoes(){
 
+    const [listagemCanditatos, setListagemCanditatos] = useState([]);
+
     const [cpf, setCpf] = useState('');
     const [nome, setNome] = useState('');
     const [solucao, setSolucao] = useState('');
-    const [conceito, setConceito] = useState('');
+    const [convenio, setConvenio] = useState('');
+    
+    async function searchCandidato(e: FormEvent){
+        e.preventDefault();
 
-    useEffect(() => {
-        api.get('/candidato').then(response =>{
-
-            console.log(response.data)
-
-            const {cpf, nome} = response.data;
-            setCpf(cpf);
-            setNome(nome);
+        const response = await api.get('/historico', {
+            params:{
+                nome,
+                cpf,
+                solucao,
+                convenio    
+            }
         })
-    },[])
+            setListagemCanditatos(response.data);
+        console.log({
+            nome,
+            cpf,
+            solucao,
+            convenio
+        })
+    }
 
     return(
         <div id="page-historico" >
             <PageHeader title="Histórico de indicação especial">
-                <form id="formIdHistorico">
+                <form id="formIdHistorico" onSubmit={searchCandidato} >
                     <Select 
                         name="convenio" 
-                        value={conceito}
-                        onChange={e =>{setConceito(e.target.value)}}
+                        value={convenio}
+                        onChange={e =>{setConvenio(e.target.value)}}
                         options={[
                             {value:'ULBRA-EAD', label:'ULBRA EAD '},
                             {value:'ULBRA-EAD', label:'ULBRA EAD '}
@@ -65,7 +76,13 @@ function HistoricoDeIndicacoes(){
                 </form>
             </PageHeader>
              <div className="listando-candidatos">
-                
+                 {
+                     listagemCanditatos.map( lista => {
+                         return //tenho que criar lista componente
+                     })
+                 }     
+
+                   
                 <table>
                     <tr>
                         <th>CPF</th>

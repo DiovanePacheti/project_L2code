@@ -115,7 +115,16 @@ function Candidato(){
                 </form>
             </div>
            
-
+            <div className="listagem-candidato">
+                <ul>
+                    <li>cpf</li>
+                    <li>nome</li>
+                    <li>nome@gamil.com</li>
+                    <li>express</li>
+                    <li>ver detalhe</li>
+                    <li>apagar</li>
+                </ul>
+            </div>    
 
         </div>
     )
