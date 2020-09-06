@@ -112,18 +112,7 @@ function Candidato(){
                     <button type="submit">Indicar candidato</button>
                 </form>
             </div>
-            <div className="listando-candidatos">
-                <ul>
-                    {
-                        listagem.map(lista =>{
-                            return(
-                                <ListagemCandidato />
-                            )
-                        })
-                    }
-
-                </ul>
-            </div>
+           
 
 
         </div>
