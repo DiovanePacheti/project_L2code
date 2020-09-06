@@ -36,18 +36,7 @@ function CandidatoExpress(){
                 </form>
                     <button type="button">Indicar candidato</button>
             </div>
-            <div className="listando-candidatos">
-                <ul>
-                    {
-                        listagem.map(lista =>{
-                            return(
-                                <ListagemCandidato />
-                            )
-                        })
-                    }
-
-                </ul>
-            </div>
+           
 
 
         </div>

@@ -1,11 +1,24 @@
 import React from 'react';
 
 import './styles.css';
-function ListagemCandidato(){
+export interface Lista {
+    cpf:string;
+        id:string;
+        nome:string;
+        solucao:string;
+        convenio:string;
+        apagar:string;
+        detalhe:string;
+}
+interface ListagemItemProps {
+    lista:Lista;
+}
+
+const ListagemCandidato: React.FC<ListagemItemProps> = ({lista}) => { 
     return(
         <li>
             <div className="item">
-                <strong>000.000.000-00</strong> <strong>Diovane</strong><strong>diovane@gmail.com</strong> <a href="">Ver detalhes</a> <a href="">Apagar</a>
+    <strong>{lista.convenio}</strong> <strong>{lista.solucao}</strong><strong>{lista.cpf}</strong><strong>{lista.nome}</strong><a href="">Ver detalhes</a> <a href="">Apagar</a>
             </div>
         </li>
             

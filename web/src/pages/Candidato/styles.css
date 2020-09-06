@@ -2,6 +2,9 @@
     width: 100vw;
     height: 100vh;
 }
+.page-candidato select{
+    width: 45rem;
+}
 .page-candidato .cadastro-candidato{
     display: flex;
     /* background: rgb(34, 3, 26);  */
@@ -54,4 +57,3 @@
     align-self: flex-end;
 
 }
-

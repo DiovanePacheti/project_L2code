@@ -10,9 +10,7 @@ import Button from '../../components/Button';
 
 function Candidato(){
 
-    const listagem =[
-        {cpf:"000.000.000-89", nome:"Luis", email:"luis@gmail.com" }
-    ]
+    
 
     const [cpf, setCpf] = useState('');
     const [nome, setNome] = useState('');
@@ -115,17 +113,6 @@ function Candidato(){
                 </form>
             </div>
            
-            <div className="listagem-candidato">
-                <ul>
-                    <li>cpf</li>
-                    <li>nome</li>
-                    <li>nome@gamil.com</li>
-                    <li>express</li>
-                    <li>ver detalhe</li>
-                    <li>apagar</li>
-                </ul>
-            </div>    
-
         </div>
     )
 }

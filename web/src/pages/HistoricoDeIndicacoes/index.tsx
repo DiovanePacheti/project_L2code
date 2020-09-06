@@ -6,6 +6,8 @@ import './styles.css'
 import api from '../../services/api';
 import Input from '../../components/Input';
 import Button from '../../components/Button';
+import ListagemCandidato ,{ Lista }from '../../components/ListagemCandidato';
+
 
 function HistoricoDeIndicacoes(){
 
@@ -77,28 +79,12 @@ function HistoricoDeIndicacoes(){
             </PageHeader>
              <div className="listando-candidatos">
                  {
-                     listagemCanditatos.map( lista => {
-                         return //tenho que criar lista componente
+                     listagemCanditatos.map( (lista: Lista ) => {
+                         return <ListagemCandidato key={lista.id} lista={lista} />
                      })
                  }     
 
-                   
-                <table>
-                    <tr>
-                        <th>CPF</th>
-                        <th>Nome</th>
-                        <th>Email</th>
-                        <th>Solução</th>
-                    </tr>
-                    <tr>
-                        <td>{cpf}</td>
-                        <td>{nome}</td>
-                        <td>diovane@gmail.com</td>
-                        <td>Express</td>
-                        <td><a href="">Ver detalhes</a></td>
-                        <td><a href="">Apagar</a></td>
-                    </tr>
-                </table>
+                 
             </div>
 
         </div>
