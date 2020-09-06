@@ -6,6 +6,7 @@ import Input from '../../components/Input';
 import ListagemCandidato from '../../components/ListagemCandidato';
 import Radio from '../../components/Radio';
 import api from '../../services/api';
+import Button from '../../components/Button';
 
 function Candidato(){
 
@@ -106,10 +107,11 @@ function Candidato(){
                             />
                         </div>
                         <div className="button-carregar-lista-layout">
-                            <button type="button">Carregar lista</button>
-                            <button type="button">Baixar layout</button>
+                            <Button name="Carregar lista" type="button" />
+                            <Button name="Baixar layout" type="button" />
                         </div>
-                    <button type="submit">Indicar candidato</button>
+                        <Button name="Indicar Candidato" type="submit" />
+
                 </form>
             </div>
            

@@ -4,7 +4,7 @@ import './styles.css';
 
 interface SelectProps extends SelectHTMLAttributes<HTMLSelectElement>{
     name: string;
-    label: string;
+    label?: string;
     options: Array<{
         value:string;
         label:string;

@@ -4,11 +4,15 @@ import Select from '../../components/Select';
 
 import './styles.css'
 import api from '../../services/api';
+import Input from '../../components/Input';
+import Button from '../../components/Button';
 
 function HistoricoDeIndicacoes(){
 
-    const [cpf, setCpf] = useState('0');
-    const [nome, setNome] = useState('D');
+    const [cpf, setCpf] = useState('');
+    const [nome, setNome] = useState('');
+    const [solucao, setSolucao] = useState('');
+    const [conceito, setConceito] = useState('');
 
     useEffect(() => {
         api.get('/candidato').then(response =>{
@@ -23,16 +27,43 @@ function HistoricoDeIndicacoes(){
 
     return(
         <div id="page-historico" >
-            <PageHeader title="Histórico de indicação especial"/>
-            <Select 
-                name="convenio" 
-                label="selecione o convênio vinculado aos estudantes que serão inidcados:" 
-                options={[
-                    {value:'Cred', label:'ULBRA EAD - Cred'},
-                    {value:'Express', label:'ULBRA EAD - Cred/express'}
+            <PageHeader title="Histórico de indicação especial">
+                <form id="formIdHistorico">
+                    <Select 
+                        name="convenio" 
+                        value={conceito}
+                        onChange={e =>{setConceito(e.target.value)}}
+                        options={[
+                            {value:'ULBRA-EAD', label:'ULBRA EAD '},
+                            {value:'ULBRA-EAD', label:'ULBRA EAD '}
                     
-                ]}
-            />
+                        ]}
+                    />
+                    <Select 
+                        name="solucao" 
+                        value={solucao}
+                        onChange={e =>{setSolucao(e.target.value)}}
+                        options={[
+                            {value:'Cred', label:'Cred'},
+                            {value:'Express', label:'Express'}
+                        
+                        ]}
+                        />
+                        <Input 
+                                name="cpf" 
+                                label="CPF" 
+                                value={cpf}
+                                onChange={(e) => {setCpf(e.target.value)}}
+                        />
+                        <Input 
+                                name="nome" 
+                                label="Nome"
+                                value={nome}
+                                onChange={(e) => {setNome(e.target.value)}} 
+                        />
+                        <Button name="Indicar Candidato" type="submit" />
+                </form>
+            </PageHeader>
              <div className="listando-candidatos">
                 
                 <table>
