@@ -3,7 +3,6 @@ import PageHeader from '../../components/PageHeader';
 import Select from '../../components/Select';
 import './styles.css';
 import Input from '../../components/Input';
-import ListagemCandidato from '../../components/ListagemCandidato';
 import Radio from '../../components/Radio';
 import api from '../../services/api';
 import Button from '../../components/Button';

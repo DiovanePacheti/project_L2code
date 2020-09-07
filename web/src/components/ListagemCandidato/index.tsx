@@ -16,9 +16,9 @@ interface ListagemItemProps {
 
 const ListagemCandidato: React.FC<ListagemItemProps> = ({lista}) => { 
     return(
-        <li>
+        <li className="li-listagem">
             <div className="item">
-    <strong>{lista.convenio}</strong> <strong>{lista.solucao}</strong><strong>{lista.cpf}</strong><strong>{lista.nome}</strong><a href="">Ver detalhes</a> <a href="">Apagar</a>
+                <strong>{lista.convenio}</strong> <strong>{lista.solucao}</strong><strong>{lista.cpf}</strong><strong>{lista.nome}</strong><a href="">Ver detalhes</a> <a href="">Apagar</a>
             </div>
         </li>
             

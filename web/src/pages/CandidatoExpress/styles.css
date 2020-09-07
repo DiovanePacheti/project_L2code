@@ -3,26 +3,42 @@
     height: 100vh;
 }
 
-#formulario-candidato{
-    margin-top: 3.2rem;
+.page-candidato-express label{
+    margin-left: 3rem;
 }
 
+.page-candidato-express select{
+    width: 56rem;
+    margin-left: 3rem;
+}
+
+
 #formulario-candidato {
-    display: grid;
-    grid-template-columns:1fr 1fr 1fr 1fr;
-    column-gap: 1rem;
+    margin-top: 3.2rem;
     border: none;
     padding: 1rem 3.5rem;
     
 }
 
+#formulario-candidato .field-set{
+    display: grid;
+    grid-template-columns:1fr 1fr 1fr 1fr;
+    column-gap: 1rem;
+}
+#formulario-candidato .field-set .field-set-interno {
+    display: grid;
+    grid-template-columns:1fr 1fr ;
+    column-gap: 1rem;
+    align-items:center;
+    margin-right: 3.2rem;
+}
+
+
  .cadastro-candidato-express button{
-    border: none;
-    padding: 1rem 3.5rem;
-    margin-left: 80% ;
-    border-radius: 5rem;
-    background:var( --color-menu-dark) ;
-    color: var(--color-background-input);
+    display: flex;
+    justify-self: flex-end;
+    margin-left: 129rem;
+    margin-top:2rem;
 }
 
 
