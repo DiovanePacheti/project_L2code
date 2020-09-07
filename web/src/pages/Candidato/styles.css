@@ -2,57 +2,48 @@
     width: 100vw;
     height: 100vh;
 }
-.page-candidato select{
-    width: 45rem;
-}
-.page-candidato .cadastro-candidato{
+.selectConvenio{
     display: flex;
-    /* background: rgb(34, 3, 26);  */
-    justify-content: center;
-    
+    padding: 0 2rem;
 }
-.page-candidato .cadastro-candidato #formulario-candidato{
+#formulario-candidato {
+    margin-top: 3.2rem;
+    border: none;
+    padding: 1rem 3.5rem;
     display: flex;
     flex-direction: column;
-    width: 100vw;
+    
 }
 
-.page-candidato .cadastro-candidato #formulario-candidato .radio-solucao{
-    display: flex;
-    height: 4rem;
-    color:var(--color-titulo);
+#formulario-candidato .field-set{
+    display: grid;
+    grid-template-columns:1fr 1fr 1fr 1fr;
+    column-gap: 1rem;
+    margin-bottom: 2rem;
 }
-
-
-.page-candidato .cadastro-candidato #formulario-candidato .dados-pessoais{
-    display:flex;
-    justify-content: space-between;
-
+#formulario-candidato .field-set .field-set-interno {
+    display: grid;
+    grid-template-columns:1fr 1fr ;
+    column-gap: 1rem;
+    align-items:center;
+    margin-right: 3.2rem;
 }
 .page-candidato .cadastro-candidato #formulario-candidato .button-carregar-lista-layout{
-    padding-top:2rem ;
-    height: 18rem;
-}
+    /* background: rgb(34, 3, 26);  */
+    display: flex;
 
+}
 .page-candidato .cadastro-candidato #formulario-candidato .button-carregar-lista-layout button{
-    padding: 1rem 3.5rem;
-    border-radius: 5rem;
     border: 0.2rem solid var( --color-menu-dark);
     color:var( --color-menu-dark) ;
     background: var(--color-background-input);
     margin-top: 2rem;
     width: 28rem;
 }
-.page-candidato .cadastro-candidato #formulario-candidato .button-carregar-lista-layout > button:first-child{
-    margin-right: 3.8rem;
-}
+
 .page-candidato .cadastro-candidato #formulario-candidato button{
     border: none;
-    padding: 1rem 3.5rem;
-    border-radius: 5rem;
-    background:var( --color-menu-dark) ;
-    color: var(--color-background-input);
-    margin-top: 2rem;
+    margin-top: 18rem;
     justify-self: flex-end;
     align-self: flex-end;
 

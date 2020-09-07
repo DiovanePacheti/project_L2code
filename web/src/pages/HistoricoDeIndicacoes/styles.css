@@ -7,15 +7,10 @@
     display: grid;
     grid-template-columns: repeat(5, 1fr);
     column-gap: 2rem;
-    align-items: center;
+    align-items: flex-end;
     padding: 0 2rem;
+    margin-top: 0.6rem;
 }
 
-#formIdHistorico select{
-    margin-top:3rem;
-}
 
-#formIdHistorico button{
-    margin-bottom:0.8rem ;
-}
 

@@ -48,6 +48,7 @@ function Candidato(){
         
         <div className="page-candidato" >
             <PageHeader title="Indicação especial">
+            <div className="selectConvenio"> 
             <Select 
                 name="convenio" 
                 label="selecione o convênio vinculado aos estudantes que serão inidcados:" 
@@ -58,10 +59,11 @@ function Candidato(){
                 ]}
                 
             />
+            </div>
             </PageHeader>
             <div className="cadastro-candidato">
                 <form onSubmit={handleCreateCandidato} id="formulario-candidato">
-                        <div className="radio-solucao">
+                        <div className="field-set">
                             <Radio 
                                 name="solucao" 
                                 label="Express"
@@ -77,7 +79,7 @@ function Candidato(){
                                 onChange={(e) => {setSolucao(e.target.value)}}
                             />   
                         </div>
-                        <div className="dados-pessoais">
+                        <div className="field-set">
                             <Input 
                                 name="cpf" 
                                 label="CPF" 
@@ -103,7 +105,7 @@ function Candidato(){
                                 onChange={(e) => {setTelefone(e.target.value)}}
                             />
                         </div>
-                        <div className="button-carregar-lista-layout">
+                        <div className="field-set button-carregar-lista-layout">
                             <Button name="Carregar lista" type="button" />
                             <Button name="Baixar layout" type="button" />
                         </div>

@@ -14,7 +14,7 @@ export default class CandidatoExpress {
     nome: string;
 
     @Column()
-    @MaxLength(11)
+    @MaxLength(14)
     cpf: string;
 
     @Column()

@@ -12,8 +12,8 @@ const Radio: React.FC<InputProps> = ({name, label , ...rest}) => {
 
         return(
             <div className="input-block-radio">
-                <label htmlFor={name}>{label}</label>
                 <input type="radio" name={name} {...rest}/>
+                <label htmlFor={name}>{label}</label>
             </div>
         );
 }

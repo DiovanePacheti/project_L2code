@@ -3,15 +3,10 @@
     height: 100vh;
 }
 
-.page-candidato-express label{
-    margin-left: 3rem;
+.selectConvenio{
+    display: flex;
+    padding: 0 2rem;
 }
-
-.page-candidato-express select{
-    width: 56rem;
-    margin-left: 3rem;
-}
-
 
 #formulario-candidato {
     margin-top: 3.2rem;
@@ -24,6 +19,7 @@
     display: grid;
     grid-template-columns:1fr 1fr 1fr 1fr;
     column-gap: 1rem;
+    margin-bottom: 2rem;
 }
 #formulario-candidato .field-set .field-set-interno {
     display: grid;
@@ -33,12 +29,12 @@
     margin-right: 3.2rem;
 }
 
-
- .cadastro-candidato-express button{
-    display: flex;
+#formulario-candidato button{
+    border: none;
+    margin-top: 1rem;
     justify-self: flex-end;
-    margin-left: 129rem;
-    margin-top:2rem;
+    align-self: flex-end;
+
 }
 
 

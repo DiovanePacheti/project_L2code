@@ -1,11 +1,11 @@
 .input-block-radio{
     display: flex;
-    justify-content: center;
     align-items: center;
+    font-size: 1.7rem;
 }
 
 .input-block-radio label{
-    margin-right: 2rem;
+    margin-right: 1rem;
 }
 .input-block-radio input{
     display: flex;

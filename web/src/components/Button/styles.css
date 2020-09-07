@@ -4,6 +4,4 @@ button{
     border-radius: 5rem;
     background:var( --color-menu-dark) ;
     color: var(--color-background-input);
-    justify-self: flex-end;
-    align-self: flex-end;
 }
