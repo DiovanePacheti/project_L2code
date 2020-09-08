@@ -7,6 +7,8 @@ export interface Lista {
         nome:string;
         solucao:string;
         convenio:string;
+        telefone:string;
+        email:string;
         apagar:string;
         detalhe:string;
 }
@@ -18,7 +20,7 @@ const ListagemCandidato: React.FC<ListagemItemProps> = ({lista}) => {
     return(
         <li className="li-listagem">
             <div className="item">
-                <strong>{lista.convenio}</strong> <strong>{lista.solucao}</strong><strong>{lista.cpf}</strong><strong>{lista.nome}</strong><a href="">Ver detalhes</a> <a href="">Apagar</a>
+                <strong>{lista?.telefone}</strong> <strong>{lista?.email}</strong><strong>{lista.cpf}</strong><strong>{lista.nome}</strong><a href="">Ver detalhes</a> <a href="">Apagar</a>
             </div>
         </li>
             

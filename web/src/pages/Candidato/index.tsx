@@ -6,10 +6,11 @@ import Input from '../../components/Input';
 import Radio from '../../components/Radio';
 import api from '../../services/api';
 import Button from '../../components/Button';
+import ListagemCandidato, {Lista} from '../../components/ListagemCandidato';
 
 function Candidato(){
 
-    
+    const[listagemCanditatos, setListagemCandidato] = useState([]);
 
     const [cpf, setCpf] = useState('');
     const [nome, setNome] = useState('');
@@ -41,7 +42,15 @@ function Candidato(){
             telefone,
             solucao,
             convenio
+        });
+
+        api.get('/candidato').then(response => {
+            console.log(response);
+            setListagemCandidato(response.data);
+        }).catch((err) =>{
+            alert(err.message)
         })
+
     }
 
     return(
@@ -113,7 +122,15 @@ function Candidato(){
 
                 </form>
             </div>
-           
+            <div className="listando-candidatos">
+                 {
+                     listagemCanditatos.map( (lista: Lista ) => {
+                         return <ListagemCandidato key={lista.id} lista={lista} />
+                     })
+                 }     
+
+                 
+            </div>    
         </div>
     )
 }
