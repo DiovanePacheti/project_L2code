@@ -2,7 +2,7 @@ import React from 'react';
 import Select from '../../components/Select';
 import PageHeader from '../../components/PageHeader';
 
-import './styles.css';
+// import './styles.css';
 
 function EscolheConvenio() {
     return(
