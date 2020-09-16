@@ -1,6 +1,6 @@
 import React from 'react';
+import { Container, DivLi }from './styles';
 
-import './styles.css';
 export interface Lista {
     cpf:string;
         id:string;
@@ -18,11 +18,17 @@ interface ListagemItemProps {
 
 const ListagemCandidato: React.FC<ListagemItemProps> = ({lista}) => { 
     return(
-        <li className="li-listagem">
-            <div className="item">
-                <strong>{lista?.telefone}</strong> <strong>{lista?.email}</strong><strong>{lista.cpf}</strong><strong>{lista.nome}</strong><a href="">Ver detalhes</a> <a href="">Apagar</a>
-            </div>
-        </li>
+        <Container>
+                <DivLi>{lista.telefone}</DivLi> 
+                <DivLi>{lista.email}</DivLi>
+                <DivLi>{lista.cpf}</DivLi>
+                <DivLi>{lista.nome}</DivLi>
+                <DivLi><a href="">Ver detalhes</a> </DivLi>
+                <DivLi><a href="">Apagar</a></DivLi>
+
+                
+                
+        </Container>
             
     );
 }

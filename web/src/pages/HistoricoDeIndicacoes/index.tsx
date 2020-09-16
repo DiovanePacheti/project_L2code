@@ -1,12 +1,13 @@
 import React, { useState, useEffect, FormEvent } from 'react';
+import {Container, Form } from './styles';
 import PageHeader from '../../components/PageHeader';
 import Select from '../../components/Select';
-
-import './styles.css'
 import api from '../../services/api';
 import Input from '../../components/Input';
 import Button from '../../components/Button';
 import ListagemCandidato ,{ Lista }from '../../components/ListagemCandidato';
+import TopSection from '../../components/TopSection';
+
 
 
 function HistoricoDeIndicacoes(){
@@ -39,9 +40,10 @@ function HistoricoDeIndicacoes(){
     }
 
     return(
-        <div id="page-historico" >
-            <PageHeader title="Histórico de indicação especial">
-                <form id="formIdHistorico" onSubmit={searchCandidato} >
+        <Container>
+            <PageHeader />
+            <TopSection title="Historico">
+            <Form onSubmit={searchCandidato} >
                     <Select 
                         name="convenio" 
                         value={convenio}
@@ -75,19 +77,16 @@ function HistoricoDeIndicacoes(){
                                 onChange={(e) => {setNome(e.target.value)}} 
                         />
                         <Button name="Indicar Candidato" type="submit" />
-                </form>
-            </PageHeader>
-             <div className="listando-candidatos">
-                 {
-                     listagemCanditatos.map( (lista: Lista ) => {
-                         return <ListagemCandidato key={lista.id} lista={lista} />
-                     })
-                 }     
-
-                 
-            </div>
-
-        </div>
+                </Form>
+            </TopSection>
+                <div className="listando-candidatos">
+                    {
+                        listagemCanditatos.map( (lista: Lista ) => {
+                            return <ListagemCandidato key={lista.id} lista={lista} />
+                        })
+                    }     
+                </div>
+            </Container>
     );
 }
 

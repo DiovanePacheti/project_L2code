@@ -1,6 +1,20 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { 
+    Container,
+    Logo, 
+    Botao, 
+    Menu, 
+    SessaoLogado,
+    IconAiFillFileImage,
+    IconFaEllipsisV,
+    IconMdSchool,
+    IconFaRedoAlt,
+    IconFaChartPie 
+} from './styles';
 import logoImg from '../../assets/img/logo.png';
+import Li from '../Li';
+/*
+
 import './styles.css';
 import { library } from '@fortawesome/fontawesome-svg-core'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
@@ -10,13 +24,46 @@ library.add({faClock, faChartPie, faGraduationCap,faRedoAlt,faEllipsisV,faFileCo
 interface PageHeaderProps{
     title: string;
 }
+*/
+const PageHeader: React.FC = () => {
+   // const PageHeader: React.FC<PageHeaderProps> = (props) => {
 
-const PageHeader: React.FC<PageHeaderProps> = (props) => {
     return (
+
+        <Container>
+            <Logo>
+                <img src={logoImg} alt="l2code"/>
+            </Logo>
+                 <Menu>
+                     <Botao>
+                         <IconAiFillFileImage />   
+                        <Li name="Concessões"/>
+                     </Botao>
+                     <Botao>
+                        <IconMdSchool />
+                         <Li name="Beneficiários"/>
+                     </Botao>
+                     <Botao>
+                        <IconFaRedoAlt />
+                        <Li name="Renovações"/>
+                     </Botao>
+                     <Botao>
+                        <IconFaChartPie />
+                        <Li name="Relatórios"/>
+                     </Botao>
+                     <Botao>
+                        <IconFaEllipsisV />
+                        <Li name="Mais"/>
+                     </Botao>
+                </Menu>
+            <SessaoLogado>
+                    <Li name={`Ola,diovane`}/>
+            </SessaoLogado>    
+        </Container>
+        /*
         <header className="page-header">
                 <nav>
                     <div className="img-logo">
-                        <img src={logoImg} alt="l2code"/>
                     </div>
                     <div className="header-menu">
                         <ul>
@@ -43,6 +90,7 @@ const PageHeader: React.FC<PageHeaderProps> = (props) => {
                 </div>
                 {props.children}
             </header>
+            */
     );
 }
 

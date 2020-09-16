@@ -1,12 +1,15 @@
+.input-block{
+    width: 100%;
 
+}
 .input-block label {
     font-size: 1.4rem;
     color : var( --color-label);
 }
 
  .input-block input{
-    width: 100%;
     display: flex;
+    width: 100%;
     height: 4rem;
     margin-top: 0.8rem;
     border-radius: 0.8rem;
