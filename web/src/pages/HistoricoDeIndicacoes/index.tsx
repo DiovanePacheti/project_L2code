@@ -1,5 +1,5 @@
 import React, { useState, useEffect, FormEvent } from 'react';
-import {Container, Form } from './styles';
+import {Container, Form ,IconFiSearch} from './styles';
 import PageHeader from '../../components/PageHeader';
 import Select from '../../components/Select';
 import api from '../../services/api';
@@ -7,6 +7,7 @@ import Input from '../../components/Input';
 import Button from '../../components/Button';
 import ListagemCandidato ,{ Lista }from '../../components/ListagemCandidato';
 import TopSection from '../../components/TopSection';
+import { Link } from 'react-router-dom';
 
 
 
@@ -42,7 +43,7 @@ function HistoricoDeIndicacoes(){
     return(
         <Container>
             <PageHeader />
-            <TopSection title="Historico">
+            <TopSection title="Histórico de indicação especial" caminho="/" text="voltar" >
             <Form onSubmit={searchCandidato} >
                     <Select 
                         name="convenio" 
@@ -76,7 +77,8 @@ function HistoricoDeIndicacoes(){
                                 value={nome}
                                 onChange={(e) => {setNome(e.target.value)}} 
                         />
-                        <Button name="Indicar Candidato" type="submit" />
+                        <Button children={<IconFiSearch />} name="Buscar" type="submit" />
+                        
                 </Form>
             </TopSection>
                 <div className="listando-candidatos">

@@ -41,7 +41,7 @@ const Formulario: React.FC = () =>{
                 <InputCampos>
                     {
 
-                        (solucao == 'Cred')?<FormCred />:<FormExpress />
+                       solucao == ''?<></>: (solucao == 'Cred')?<FormCred />:<FormExpress />
                     }
                 </InputCampos>
             </form>

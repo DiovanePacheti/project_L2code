@@ -14,6 +14,8 @@ import {
 
 interface TopSectionProps{
     title: string;
+    caminho: string;
+    text : string;
 }
 
 const TopSection: React.FC<TopSectionProps> = (props) =>{
@@ -22,7 +24,7 @@ const TopSection: React.FC<TopSectionProps> = (props) =>{
     return (
         <Container>
             <Navegacao >
-                Portal IE > indicações especial 
+                <Link to={props.caminho}>{props.text}</Link>
             </Navegacao>
             <TitleLinkHistorico>
                 <Title>

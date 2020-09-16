@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import { FaSearch } from "react-icons/fa";
 
 export const Container = styled.div`
     width: 100vw;
@@ -19,3 +20,6 @@ export const Form = styled.form`
 
 
 `;
+ export const IconFiSearch = styled(FaSearch)`
+    
+ `;
