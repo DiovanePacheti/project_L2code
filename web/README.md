@@ -3,7 +3,7 @@
 ![](assets/L2Code.png)
 
 ### Pagina Deploy netlify
-[Pagina Netlify](https://elegant-lovelace-2ceeb1.netlify.app/)
+[Pagina Netlify](https://goofy-cori-639871.netlify.app/)
 
 ## Tecnoligias
 
