@@ -36,17 +36,7 @@ const FormCred: React.FC = () =>{
             alert('erro na cadastro') 
         })
 
-        console.log({
-            cpf,
-            nome,
-            email,
-            telefone,
-            solucao,
-            convenio
-        });
-
         api.get('/candidato').then(response => {
-            console.log(response);
             setListagemCandidato(response.data);
         }).catch((err) =>{
             alert(err.message)
@@ -99,7 +89,7 @@ const FormCred: React.FC = () =>{
             </FieldsetButton>
 
                             </form>
-                        <div className="listando-candidatos">
+                        <div>
                  {
                      listagemCanditatos.map( (lista: Lista ) => {
                          return <ListagemCandidato key={lista.id} lista={lista} />

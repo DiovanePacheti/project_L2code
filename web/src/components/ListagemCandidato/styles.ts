@@ -22,6 +22,7 @@ export const DivLi = styled.div`
     
 `;
 
+
 /*
 
 .li-listagem .item strong{

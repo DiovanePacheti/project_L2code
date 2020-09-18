@@ -78,7 +78,7 @@ candidatoRoutes.get('/', async(req:Request, res:Response) => {
 
         const result = await repoCandidatoEpress.find({
             select:[
-                "cpf","email","nome","telefone"
+                "cpf","email","nome","telefone","solucao","id"
             ]
         });
 

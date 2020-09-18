@@ -20,7 +20,7 @@ const FormExpress: React.FC = () =>{
     const [previsaoFormatura, setPrevisaoFormatura] = useState('');
     const [valorContratado, setValorContratado] = useState('')
     const [parcelasCobertas, setParcelasCobertas] = useState('')
-    const [solucao, setSolucao] = useState('')
+    const [solucao, setSolucao] = useState('Express')
     const [condicaoDaRestituicao,setCondicaoDaRestituicao] = useState('')
     const [validade, setValidate] = useState([]);
     const [convenio, SetConvenio] = useState('ULBRA-EAD');
@@ -53,26 +53,8 @@ const FormExpress: React.FC = () =>{
             alert(err.message)
         })
 
-        console.log({
-            cpf,
-            nome,
-            email,
-            telefone,
-            solucao,
-            convenio,
-            curso,
-            previsaoFormatura, 
-            valorContratado: Number(valorContratado),
-            parcelasCobertas: Number(parcelasCobertas),
-            condicaoDaRestituicao: Number(condicaoDaRestituicao),
-            validade:[
-                { de, ate}
-            ],
-            inicioDaRestituicao
-        })
-
-        api.get('/candidatoexpress').then(response => {
-            console.log(response);
+        
+        api.get('/candidatoExpress').then(response => {
             setListagemCandidato(response.data);
         }).catch((err) =>{
             alert(err.message)
@@ -180,7 +162,7 @@ const FormExpress: React.FC = () =>{
             <Button type="submit" name="Indicar Candidato" />
         </CellButton>
             </form>
-        <div className="listando-candidatos">
+            <div>
                  {
                      listagemCanditatos.map( (lista: Lista ) => {
                          return <ListagemCandidato key={lista.id} lista={lista} />

@@ -22,6 +22,7 @@ historicoDeIndicacaoEspeciaal.get('/', async(req:Request, res:Response) =>{
     
     try{
        let t = (solucao == "Express")?"CandidatoExpress":"Candidato";
+       console.log(t)
         const  repoHistorico = getRepository(t);
 
         const result = await repoHistorico.find({
@@ -32,7 +33,7 @@ historicoDeIndicacaoEspeciaal.get('/', async(req:Request, res:Response) =>{
                 solucao
             }
         })
-        
+        console.log(result)
         return res.status(200).json(result)        
     }catch(err){
         console.log('erro : ', err.message);
