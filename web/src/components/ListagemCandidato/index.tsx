@@ -1,7 +1,8 @@
 import React, { ButtonHTMLAttributes, useState } from 'react';
 import api from '../../services/api';
+import Button from '../Button';
 import Detalhes from '../Detalhes';
-import { Container, DivLi }from './styles';
+import { Container, DivLi, Top, Titulo , IconFaTrashAlt, IconFaListUl}from './styles';
 
 export interface Lista {
     cpf:string;
@@ -18,9 +19,26 @@ interface ListagemItemProps {
     lista:Lista;
 }
 
+interface InterDetalhes {
+    cpf:string;
+        id:string;
+        nome:string;
+        solucao:string;
+        convenio:string;
+        telefone:string;
+        email:string;
+        apagar:string;
+        detalhe:string;
+}
+
+interface Detalh<InterDetalhes> {
+    det:InterDetalhes;
+}
+
+
 const ListagemCandidato: React.FC<ListagemItemProps> = ({lista}) => { 
 
-    const [solucao, setSolucao] = useState(" ") 
+    const [detalhes, setDetalhes] = useState([]); 
     const [dialog , setDialog] = useState(0);
     
    async function apagar(id: string, paramSolucao:string){
@@ -43,7 +61,7 @@ const ListagemCandidato: React.FC<ListagemItemProps> = ({lista}) => {
         }
     }
 
-    async function detalhes(id: string, paramSolucao:string){
+    async function handelDetalhes(id: string, paramSolucao:string){
 
         try{
             console.log(paramSolucao)
@@ -51,11 +69,11 @@ const ListagemCandidato: React.FC<ListagemItemProps> = ({lista}) => {
             if(paramSolucao == 'Express'){
 
                 const response = await api.get(`candidatoExpress/${id}`)
-                console.log(response.data)
+                setDetalhes(response.data)
 
             }else{
                 const response = await api.get(`candidato/${id}`)
-                console.log(response.data)
+                setDetalhes(response.data)
                 // setDialog(1);
 
             }
@@ -75,16 +93,33 @@ const ListagemCandidato: React.FC<ListagemItemProps> = ({lista}) => {
                 <DivLi>
                     <button 
                         type="button"
-                        onClick={() => detalhes(lista.id, lista.solucao)} 
-                    >Ver detalhes</button> </DivLi>
+                        onClick={() => handelDetalhes(lista.id, lista.solucao)} 
+                    ><IconFaListUl />Ver detalhes</button> </DivLi>
                 <DivLi>
                     <button 
                         type="button"
                         onClick={() => apagar(lista.id, lista.solucao)} 
-                    >Apagar</button>
+                    ><IconFaTrashAlt />Apagar</button>
                 </DivLi>
                 {
-                    (dialog == 1 )? <Detalhes />:<></>
+                    (dialog == 1 )? <Detalhes >
+                        
+                        <Top>
+                            <Titulo>Detalhes da indicação especial</Titulo>
+                            <Button onClick={() => setDialog(0)} name="X"/>
+                        </Top>
+                        detalhes
+                        {
+                            
+                            detalhes.map((detalhe: InterDetalhes) =>{
+                                return(
+                                    detalhe.nome, 
+                                    detalhe.cpf,
+                                    detalhe.convenio
+                                    )
+                            })
+                        }
+                    </Detalhes>:<></>
 
                 }
                 

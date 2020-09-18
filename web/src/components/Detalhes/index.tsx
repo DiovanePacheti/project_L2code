@@ -1,13 +1,13 @@
-import React, {useState} from 'react';
+import React from 'react';
 
 import { Container } from './styles';
 
-const Detalhes: React.FC = () =>{
+const Detalhes: React.FC = (props) =>{
     
 
     return(
         <Container>
-            nada
+            {props.children}
         </Container>
     )
 }

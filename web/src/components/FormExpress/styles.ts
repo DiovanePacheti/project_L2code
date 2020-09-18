@@ -37,3 +37,7 @@ export const CellButton = styled.div`
     display:flex;
     justify-content:flex-end;
 `;
+
+export const SectionLista = styled.div`
+    margin-top:6rem;
+`;

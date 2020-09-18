@@ -7,7 +7,7 @@ import ListagemCandidato, {Lista} from '../../components/ListagemCandidato';
 
 
 
-import {Container, Fieldset, Buttons,FieldsetButton } from './styles';
+import {Container, Fieldset, Buttons,FieldsetButton ,SectionLista} from './styles';
 
 const FormCred: React.FC = () =>{
 
@@ -89,7 +89,7 @@ const FormCred: React.FC = () =>{
             </FieldsetButton>
 
                             </form>
-                        <div>
+                        <SectionLista>
                  {
                      listagemCanditatos.map( (lista: Lista ) => {
                          return <ListagemCandidato key={lista.id} lista={lista} />
@@ -97,7 +97,7 @@ const FormCred: React.FC = () =>{
                  }     
 
                  
-            </div> 
+            </SectionLista> 
           
         </Container>
 

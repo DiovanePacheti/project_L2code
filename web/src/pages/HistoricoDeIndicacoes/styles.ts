@@ -24,4 +24,6 @@ export const Form = styled.form`
     
  `;
 
- 
+export const SectionLista = styled.div`
+margin-top:6rem;
+`;

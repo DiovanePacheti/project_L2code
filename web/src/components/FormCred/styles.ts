@@ -34,3 +34,6 @@ export const FieldsetButton = styled.div`
     margin-top:8.6rem;
 
 `;
+export const SectionLista = styled.div`
+    margin-top:6rem;
+`;

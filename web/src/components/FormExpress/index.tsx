@@ -5,7 +5,7 @@ import api from '../../services/api';
 import ListagemCandidato, {Lista} from '../../components/ListagemCandidato';
 
 
-import {Container, Cell, Validade, CellButton} from './styles';
+import {Container, Cell, Validade, CellButton, SectionLista} from './styles';
 import Button from '../Button';
 
 const FormExpress: React.FC = () =>{
@@ -162,7 +162,7 @@ const FormExpress: React.FC = () =>{
             <Button type="submit" name="Indicar Candidato" />
         </CellButton>
             </form>
-            <div>
+            <SectionLista>
                  {
                      listagemCanditatos.map( (lista: Lista ) => {
                          return <ListagemCandidato key={lista.id} lista={lista} />
@@ -170,7 +170,7 @@ const FormExpress: React.FC = () =>{
                  }     
 
                  
-            </div> 
+            </SectionLista> 
         </Container>
         );
 

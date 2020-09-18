@@ -1,5 +1,5 @@
 import React, { useState, useEffect, FormEvent } from 'react';
-import {Container, Form ,IconFiSearch } from './styles';
+import {Container, Form ,IconFiSearch ,SectionLista} from './styles';
 import PageHeader from '../../components/PageHeader';
 import Select from '../../components/Select';
 import api from '../../services/api';
@@ -77,13 +77,13 @@ function HistoricoDeIndicacoes(){
             </TopSection>
                 
                         
-                <div>
+                <SectionLista>
                     {
                         listagemCanditatos.map( (lista: Lista ) => {
                             return <ListagemCandidato key={lista.id} lista={lista} />
                         })
                     }     
-                </div>
+                </SectionLista>
             </Container>
     );
 }
