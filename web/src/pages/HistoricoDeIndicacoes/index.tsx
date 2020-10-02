@@ -1,4 +1,4 @@
-import React, { useState, useEffect, FormEvent } from 'react';
+import React, { useState, useEffect, FormEvent, useCallback } from 'react';
 import {Container, Form ,IconFiSearch ,SectionLista} from './styles';
 import PageHeader from '../../components/PageHeader';
 import Select from '../../components/Select';
@@ -9,26 +9,38 @@ import ListagemCandidato ,{ Lista }from '../../components/ListagemCandidato';
 import TopSection from '../../components/TopSection';
 import { Link } from 'react-router-dom';
 
+interface InterfaceCandidato{
+    cpf:string;
+    nome:string;
+    solucao:string;
+    convenio:string;
+}    
 
-
-function HistoricoDeIndicacoes(){
+const HistoricoDeIndicacoes: React.FC = () =>{
 
     const [listagemCanditatos, setListagemCanditatos] = useState([]);
 
-    const [cpf, setCpf] = useState('');
-    const [nome, setNome] = useState('');
-    const [solucao, setSolucao] = useState('');
-    const [convenio, setConvenio] = useState('');
+    const[ busca , setBusca] = useState<InterfaceCandidato>({} as InterfaceCandidato)
+    
+    const handleChange = useCallback((e: React.FormEvent<HTMLInputElement>) =>{
+        setBusca({
+            ...busca,
+            [e.currentTarget.name]: e.currentTarget.value,
+            solucao:"Express",
+            convenio:"ULBRA-EAD"
+        })
+    },[busca])
+
     
     async function searchCandidato(e: FormEvent){
         e.preventDefault();
 
         const response = await api.get('/historico', {
             params:{
-                nome,
-                cpf,
-                solucao,
-                convenio    
+                convenio:busca.convenio,
+                cpf:busca.cpf,
+                nome:busca.nome,
+                solucao:busca.solucao,
             }
         })
             setListagemCanditatos(response.data);
@@ -41,8 +53,8 @@ function HistoricoDeIndicacoes(){
             <Form onSubmit={searchCandidato} >
                     <Select 
                         name="convenio" 
-                        value={convenio}
-                        onChange={e =>{setConvenio(e.target.value)}}
+                        // value={convenio}
+                        // onChange={e =>{setConvenio(e.target.value)}}
                         options={[
                             {value:'ULBRA-EAD', label:'ULBRA EAD '},
                             {value:'ULBRA-EAD', label:'ULBRA EAD '}
@@ -51,8 +63,8 @@ function HistoricoDeIndicacoes(){
                     />
                     <Select 
                         name="solucao" 
-                        value={solucao}
-                        onChange={e =>{setSolucao(e.target.value)}}
+                        // value={solucao}
+                        // onChange={e =>{setSolucao(e.target.value)}}
                         options={[
                             {value:'Cred', label:'Cred'},
                             {value:'Express', label:'Express'}
@@ -60,16 +72,17 @@ function HistoricoDeIndicacoes(){
                         ]}
                         />
                         <Input 
-                                name="cpf" 
-                                label="CPF" 
-                                value={cpf}
-                                onChange={(e) => {setCpf(e.target.value)}}
+                            mask="nome"
+                            name="nome" 
+                            label="Nome"
+                            onChange={handleChange} 
                         />
                         <Input 
-                                name="nome" 
-                                label="Nome"
-                                value={nome}
-                                onChange={(e) => {setNome(e.target.value)}} 
+                            mask="cpf"
+                            name="cpf" 
+                            label="CPF" 
+                            onChange={handleChange}
+                    
                         />
                         <Button children={<IconFiSearch />} name="Buscar" type="submit" />
                         

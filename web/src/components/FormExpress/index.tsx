@@ -1,4 +1,4 @@
-import React, {FormEvent, useState} from 'react';
+import React, {FormEvent, useState, useCallback, useEffect} from 'react';
 import Input from '../Input';
 import Select from '../Select';
 import api from '../../services/api';
@@ -8,58 +8,79 @@ import ListagemCandidato, {Lista} from '../../components/ListagemCandidato';
 import {Container, Cell, Validade, CellButton, SectionLista} from './styles';
 import Button from '../Button';
 
+interface InterfaceCandidato{
+    cpf:string;
+    nome:string;
+    email:string;
+    telefone:number;
+    solucao:string;
+    convenio:string;
+    curso:string;
+    previsaoFormatura:string; 
+    valorContratado:number;
+    parcelasCobertas: number;
+    condicaoDaRestituicao: number;
+    de:string;
+    ate:string
+    inicioDaRestituicao:string
+}
 const FormExpress: React.FC = () =>{
 
-    const[listagemCanditatos, setListagemCandidato] = useState([]);
-
-    const [cpf, setCpf] = useState('');
-    const [nome, setNome] = useState('');
-    const [email, setEmail] = useState('');
-    const [telefone, setTelefone] = useState('');
+    const [candidato, setCandidato] = useState<InterfaceCandidato>({} as InterfaceCandidato);
+    const [carregar, setCarregar] = useState(false);
     const [curso, setCurso] = useState('');
-    const [previsaoFormatura, setPrevisaoFormatura] = useState('');
-    const [valorContratado, setValorContratado] = useState('')
-    const [parcelasCobertas, setParcelasCobertas] = useState('')
-    const [solucao, setSolucao] = useState('Express')
-    const [condicaoDaRestituicao,setCondicaoDaRestituicao] = useState('')
-    const [validade, setValidate] = useState([]);
-    const [convenio, SetConvenio] = useState('ULBRA-EAD');
-    const [de, setDe] = useState('');
-    const [ate, setAte] = useState('');
-    const [inicioDaRestituicao, setInicioDaRestituicao] = useState('');
- 
- 
+
+    const handleChange = useCallback((e: React.FormEvent<HTMLInputElement>) =>{
+        setCandidato({
+            ...candidato,
+            [e.currentTarget.name]: e.currentTarget.value,
+            solucao:"Express",
+            convenio:"ULBRA-EAD"
+        })
+    }, [candidato])
+const[listagemCanditatos, setListagemCandidato] = useState([]);
+   
     function handleCreateCandidato(e:FormEvent){
         e.preventDefault();
+        console.log(candidato)
+        
         api.post('/candidatoExpress',{
-            cpf,
-            nome,
-            email,
-            telefone,
-            solucao,
-            convenio,
+            cpf:candidato.cpf,
+            nome:candidato.nome,
+            email:candidato.email,
+            telefone:candidato.telefone,
+            solucao:candidato.solucao,
+            convenio:candidato.convenio,
             curso,
-            previsaoFormatura, 
-            valorContratado: Number(valorContratado),
-            parcelasCobertas: Number(parcelasCobertas),
-            condicaoDaRestituicao: Number(condicaoDaRestituicao),
+            previsaoFormatura:candidato.previsaoFormatura, 
+            valorContratado: candidato.valorContratado,
+            parcelasCobertas: candidato.parcelasCobertas,
+            condicaoDaRestituicao:candidato.condicaoDaRestituicao,
             validade:[
-                { de, ate}
+                { de:candidato.de, ate:candidato.ate}
             ],
-            inicioDaRestituicao
+            inicioDaRestituicao:candidato.inicioDaRestituicao
         }).then(() =>{
             alert('cadastro realizado com sucesso')
+            setCarregar(true)
+            
         }).catch((err) =>{
             alert(err.message)
         })
-
-        
+    }    
+    
         api.get('/candidatoExpress').then(response => {
             setListagemCandidato(response.data);
         }).catch((err) =>{
             alert(err.message)
         })
-    }
+
+        
+    
+
+
+
+    
     
     
     return(
@@ -69,108 +90,112 @@ const FormExpress: React.FC = () =>{
 
         <Cell>    
             <Input 
+                mask="cpf"
                 name="cpf" 
                 label="CPF" 
-                value={cpf}
-                onChange={(e) => {setCpf(e.target.value)}}
+                onChange={handleChange}
         
             />
             <Input 
+            mask="nome"
             name="nome" 
             label="Nome"
-            value={nome}
-            onChange={(e) => {setNome(e.target.value)}} 
+            onChange={handleChange} 
             />
             <Input 
+                mask="email"
                 name="email" 
                 label="Email" 
-                value={email}
-                onChange={(e) =>{setEmail(e.target.value)}}
-                />
+                onChange={handleChange}
+            />
             <Input 
+                mask="telefone"
                 name="telefone"     
                 label="Telefone" 
-                value={telefone}
-                onChange={(e) =>{setTelefone(e.target.value)}}
+                onChange={handleChange}
                 />
             </Cell>
+            
             <Cell>
         <Select 
-            name="curso" 
-            label="" 
-            value={curso}
-            onChange={(e) =>{setCurso(e.target.value)}}
-            options={[
-                {value:'Analise Desenvolvimento de Sistema', label:'Analise Desenvolvimento de Sistema'},
-                {value:'Redes', label:'Redes'}
-            
-            ]}
-
+             name="curso" 
+             label="" 
+             value={curso}
+            onChange={(e) =>{setCurso(e.target.value)}}  
+             options={[
+                 {value:'Analise Desenvolvimento de Sistema', label:'Analise Desenvolvimento de Sistema'},
+                 {value:'Redes', label:'Redes'}
+             
+             ]}
             />
         <Input 
-            name="previsao-de-formatura" 
+            mask="mesAno"
+            name="previsaoFormatura" 
             label="Previsão de formatura" 
-            placeholder="ANO/SEMESTRE" 
-            value={previsaoFormatura}
-            onChange={(e) =>{setPrevisaoFormatura(e.target.value)}}    
-            />
+            placeholder="SEMESTRE/ANO"
+            onChange={handleChange} 
+        />
         <Input 
-            name="valor-contratado" 
+            mask="currency"
+            name="valorContratado" 
             label="Valor contratado" 
-            value={valorContratado}
-            onChange={(e) =>{setValorContratado(e.target.value)}}
-            />
+            onChange={handleChange}
+        />
         <Input 
-            name="parcelas-cobertas" 
+            mask="parcelas"
+            name="parcelasCobertas" 
             label="Parcelas cobertas"
-            value={parcelasCobertas}
-            onChange={(e) => {setParcelasCobertas(e.target.value)}} 
+            onChange={handleChange}
         />
     </Cell>
     <Cell>
         <Input 
-            name="parcelas-restituir" 
+            mask="parcelas"
+            name="condicaoDaRestituicao" 
             label="Parcelas restituir" 
-            value={condicaoDaRestituicao}
-            onChange={(e) => {setCondicaoDaRestituicao(e.target.value)}}
-        />
+            onChange={handleChange}
+            />
         <Validade>
             <Input 
+                mask="mesAno"
                 label="validade" 
-                name="De" 
+                name="de" 
                 placeholder="De"
-                value={de} 
-                onChange={(e) => {setDe(e.target.value)}}
-            />
+                onChange={handleChange}
+                />
             <Input 
-                name="email" 
+                mask="mesAno"
+                name="ate" 
                 label="" 
                 placeholder="Até"
-                value={ate}
-                onChange={(e) => {setAte(e.target.value)}}
-            />
+                onChange={handleChange}
+                />
         </Validade>
         <Input 
-            name="inicio-da-restituicao" 
+            mask="mesAno"
+            name="inicioDaRestituicao" 
             label="inicio da restituição" 
             placeholder="MÊS/ANO" 
-            value={inicioDaRestituicao}
-            onChange={(e) => {setInicioDaRestituicao(e.target.value)}}
-        />
+            onChange={handleChange}
+            />
         </Cell>
+        
         <CellButton>
             <Button type="submit" name="Indicar Candidato" />
         </CellButton>
             </form>
+            
+             
             <SectionLista>
                  {
                      listagemCanditatos.map( (lista: Lista ) => {
                          return <ListagemCandidato key={lista.id} lista={lista} />
-                        })
+                     })
                  }     
 
                  
             </SectionLista> 
+             
         </Container>
         );
 

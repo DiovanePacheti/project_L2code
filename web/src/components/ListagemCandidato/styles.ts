@@ -2,11 +2,13 @@ import styled from 'styled-components';
 import { FaTrashAlt, FaListUl} from "react-icons/fa";
 
 export const Container = styled.li`
+    display: grid;
+    grid-template-columns:1fr 1fr 1fr 1fr 1fr 1fr;
+    column-gap: 1.8rem;
     width: 90vw;
     margin: 1.8rem auto 0 ;
     height: 4rem;
     padding: 0 1rem ;
-    display: flex;
     align-items: center;
     background:var(--color-background-li);   
     border-radius: 0.8rem;
@@ -15,12 +17,17 @@ export const Container = styled.li`
 
 export const DivLi = styled.div`
     display:flex;
-    height:100%;
-    align-items: center;
-    justify-content:start;
-    margin: 1rem auto 0;
-    text-align:left;
+    flex-wrap:nowrap;
+    width:100%;
+    justify-content:flex-start;
     color:var(--color-input);
+    overflow:hidden;
+    text-overflow:ellipsis;
+    white-space: nowrap;
+
+    &:hover{
+        overflow:visible;
+    }
 
     > button{
         display:flex;
@@ -45,16 +52,12 @@ export const Top = styled.div`
 export const Titulo = styled.h2`
 `;
 
+
 export const IconFaListUl = styled(FaListUl)`
-
+    margin-right:1rem;
 `;
-export const IconFaTrashAlt = styled(FaTrashAlt)``;
+export const IconFaTrashAlt = styled(FaTrashAlt)`
+    margin-right:1rem;
+`;
 
 
-/*
-
-.li-listagem .item strong{
-    background:red;
-    display: flex;
-    justify-self: flex-start;
-}*/
